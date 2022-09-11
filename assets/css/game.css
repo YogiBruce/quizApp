@@ -1,7 +1,7 @@
 .question-container{
     display: flex;
     margin-bottom: .8rem;
-    width: auto;
+    width: 50%;
     background-color: black;
     border: .1rem solid #f8d106;
     border-radius: 8px;
