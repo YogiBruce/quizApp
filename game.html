@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quick Quiz - Play</title>
+    <title>Wu-Tang Trivia</title>
     <link rel="stylesheet" href="assets/css/app.css">
     <link rel="stylesheet" href="assets/css/game.css">
 </head>
@@ -20,6 +20,7 @@
                         <div id="progressBarFull"></div>
                     </div>
                 </div>
+                <iframe width="400" height="225" src="https://www.youtube.com/embed/CdpU4dRMR-8?controls=0&amp;start=39" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 <div id="hud-item">
                     <p class="hud-prefix">
                         Score
@@ -49,6 +50,22 @@
         </div>
         <script src="assets/js/game.js"></script>
     </div>
-    
+    <script>var tag = document.createElement('script');
+
+        tag.src = "https://www.youtube.com/iframe_api";
+        var firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+        var player;
+      function onYouTubeIframeAPIReady() {
+        player = new YT.Player('player', {
+          height: '225',
+          width: '400',
+          videoId: 'CdpU4dRMR-8',
+          playerVars: {
+            'playsinline': 1
+          },
+        });
+      }
+     </script>
 </body>
 </html>
