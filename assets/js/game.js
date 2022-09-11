@@ -38,12 +38,36 @@ let questions = [
         choice3: "lorum ipsem",
         choice4: "lorip emsum",
         answer: 3
-    }
+    },
+    {
+        question: "LOREM IPSUM?",
+        choice1: "lorem ipsum",
+        choice2: "ipsum lorem",
+        choice3: "lorum ipsem",
+        choice4: "lorip emsum",
+        answer: 2
+    },
+    {
+        question: "LOREM IPSUM?",
+        choice1: "lorem ipsum",
+        choice2: "ipsum lorem",
+        choice3: "lorum ipsem",
+        choice4: "lorip emsum",
+        answer: 2
+    },
+    {
+        question: "LOREM IPSUM?",
+        choice1: "lorem ipsum",
+        choice2: "ipsum lorem",
+        choice3: "lorum ipsem",
+        choice4: "lorip emsum",
+        answer: 3
+    },
 ]
 
 //CONSTANTS
 const CORRECT_BONUS = 10;
-const MAX_QUESTIONS = 3;
+const MAX_QUESTIONS = 6;
 
 function startGame(){
     questionCounter =0;
