@@ -72,7 +72,7 @@ const MAX_QUESTIONS = 6;
 function startGame(){
     questionCounter =0;
     score = 0;
-    timerCount = 45;
+    timerCount = 90;
     availableQuestions = [...questions];
     getNewQuestion();
 };
