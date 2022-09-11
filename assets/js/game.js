@@ -82,7 +82,7 @@ function startTimer() {
       timerCount--;
       timerElement.innerHTML = timerCount;
       if (timerCount === 0) {
-        alert("You have ran out of time");
+        alert("\"YOU BEST PROTECT YA NECK\" -Wu Tang ");
         return window.location.assign(`end.html`);
       }
     }, 1000);

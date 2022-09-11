@@ -1,26 +1,35 @@
+.question-container{
+    display: flex;
+    margin-bottom: .8rem;
+    width: auto;
+    background-color: black;
+    border: .1rem solid #f8d106;
+    border-radius: 8px;
+    margin: auto;
+    margin-bottom: 0.5rem;
+    margin-top: 4rem;
+}
+#question{
+    color: #f8d106;
+    font-size: 2.4rem;
+    padding: .4rem;
+}
 .choice-container {
     display: flex;
     margin-bottom: 0.5rem;
-    width: 50%;
-    font-size: 1.8rem;
-    border: 0.1rem solid #720e9e;
+    width: 30%;
+    font-size: 2rem;
+    border: 0.1rem solid black;
     border-radius: 30px;
-    background-color: white;
+    background-color: #f8d106;
     margin: auto;
     justify-content: center;
     margin-bottom: 1rem;
 }
 
-#question{
-    padding-left: 25%;
-    padding-bottom: .2rem;
-    color: #720e9e;
-    Font-size: 2.2rem;
-}
-
 .choice-container:hover {
     cursor: grab;
-    box-shadow: 0 0.4rem 1.4rem 0 rgba(191, 85, 236, 0.5);
+    box-shadow: 0 0.4rem 1.4rem 0 #f8d106;
     transform: translateY(-0.1rem);
 }
 
@@ -32,6 +41,8 @@
     padding: 1.5rem;
     width: 100%;
     text-align: center;
+    font-style: bold;
+    color: black;
 } 
 
 .correct {
@@ -44,7 +55,10 @@
 
 #hud {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
+    justify-content: space-evenly;
+    align-items: center;
+    
 }
 
 .hud-prefix{
@@ -54,18 +68,19 @@
 
 .hud-main-text{
     text-align: center;
+    color: #f8d106;
 }
 
 #progressBar{
     width: 20rem;
     height: 4rem;
-    border: 0.3rem solid #720e9e;
+    border: 0.3rem solid #f8d106;
     margin-top: 1.5rem;
 }
 
 #progressBarFull{
     height: 3.4rem;
-    background-color: #720e9e;
+    background-color: black;
     width: 0%;
 }
 .timer{
