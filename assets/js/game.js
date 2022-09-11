@@ -1,3 +1,4 @@
+//DECLARING VARIABLES TO HTML ELEMENTS
 const question = document.getElementById("question");
 const choices = Array.from(document.getElementsByClassName("choice-text"));
 const progressText = document.getElementById(`progressText`);
@@ -7,6 +8,7 @@ const timerElement = document.getElementById("timer-count")
 var timer;
 var timerCount;
 
+//STARTING VALUES FOR VARIABLES
 let currentQuestion = {};
 let acceptingAnswers = true;
 let score = 0;
@@ -69,6 +71,7 @@ let questions = [
 const CORRECT_BONUS = 10;
 const MAX_QUESTIONS = 6;
 
+//START GAME FUNCTION INITIATES TIMER AND QUESTION INITIAL VALUES
 function startGame(){
     questionCounter =0;
     score = 0;
@@ -77,6 +80,7 @@ function startGame(){
     getNewQuestion();
 };
 
+//TIMER SUBTRACTS 1 SECOND FROM INITIAL TIME WHEN QUIZ BEGINS
 function startTimer() {
     timer = setInterval(function() {
       timerCount--;
@@ -87,29 +91,34 @@ function startTimer() {
       }
     }, 1000);
   }
+  //FUNCTION TO GET NEW QUESTIONS FROM ARRAY FIRST CHECKS THAT MORE QUESTIONS ARE AVAILABLE
   function getNewQuestion(){
     if (availableQuestions.length ===0 || questionCounter >= MAX_QUESTIONS){
         localStorage.setItem(`mostRecentScore`, score)
         return window.location.assign(`end.html`);
     }
-
+    //QUESTION COUNTER DISPLAYS USERS PROGRESS BASED ON PERCENTAGE OF QUESTIONS COMPLETED
     questionCounter++;
     progressText.innerText = `Question: ${questionCounter}/${MAX_QUESTIONS}`
     progressBarFull.style.width = `${(questionCounter / MAX_QUESTIONS) * 100}%`;
 
+    //RANDOM QUESTION IS SELECTED USING MATH.RANDOM TO SELECT QUESTION POSITION IN ARRAY BASED ON REMAINING ARRAY LENGTH
     const questionIndex = Math.floor(Math.random() * availableQuestions.length);
     currentQuestion = availableQuestions[questionIndex];
     question.innerText = currentQuestion.question;
 
+    //DISPLAYS QUESTION AND CHOICES TO DOM
     choices.forEach( choice => {
         const number = choice.dataset[`number`];
         choice.innerText = currentQuestion[`choice` + number];
     })
-
+    
+    //REMOVES QUESTION USED FROM ARRAY USING SPLICE
     availableQuestions.splice(questionIndex, 1);
     acceptingAnswers = true;
 };
 
+//FUNCTION TO SELECT AND EVALUATE ANSWER
 choices.forEach(choice => {
     choice.addEventListener("click", e =>{
     if(!acceptingAnswers) return;
@@ -117,15 +126,19 @@ choices.forEach(choice => {
     acceptingAnswers = false;
     const selectedChoice = e.target;
     const selectedAnswer = selectedChoice.dataset[`number`];
-
+    
+    //ADDS CSS PROPERTY FOR RIGHT/WRONG TO USABLE VARIABLE
     let classToApply = selectedAnswer == currentQuestion.answer ? "correct" : "incorrect";
-
+    
+    //ADDS POINTS TO SCORE FOR CORRECT ANSWER
     if (classToApply === "correct"){
         incrementScore(CORRECT_BONUS);
     }
     
+    //USES VARIABLE FOR CORRECTNESS TO ADD CSS CLASS TO CHOSEN ANSWER 
     selectedChoice.parentElement.classList.add(classToApply);
     
+    //TIMEOUTS CLASS CHANGE TO ALLOW NEXT QUESTION TO BE CALLED
     setTimeout( ()=> {
         selectedChoice.parentElement.classList.remove(classToApply);
         getNewQuestion();
@@ -136,9 +149,11 @@ choices.forEach(choice => {
     });
 })
 
+//INCREMENTS SCORE DISPLAY IF CORRECT ANSWER IS CHOSEN.
 incrementScore = num => {
     score += num;
     scoreText.innerText = score;
 }
+//GAME AND TIMER ARE CALLED TO START AT SAME TIME
 startTimer()
 startGame()

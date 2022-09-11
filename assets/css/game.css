@@ -1,7 +1,7 @@
 .question-container{
     display: flex;
     margin-bottom: .8rem;
-    width: 50%;
+    width: auto;
     background-color: black;
     border: .1rem solid #f8d106;
     border-radius: 8px;
@@ -11,7 +11,7 @@
 }
 #question{
     color: #f8d106;
-    font-size: 2.4rem;
+    font-size: 3rem;
     padding: .4rem;
     text-align: justify;
 }

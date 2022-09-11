@@ -125,6 +125,7 @@ input {
     font-size: 1.8rem;
     border: none;
     box-shadow: 0 0.1rem 1.4rem 0 #f8d106;
+    text-align: center;
 }
 
 input::placeholder {
