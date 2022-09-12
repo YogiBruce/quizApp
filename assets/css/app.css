@@ -105,6 +105,13 @@ h3 {
     transition: transform 150ms;
 }
 
+.btn:active{
+    cursor: grabbing;
+    border: 0.1rem solid #f8d106;
+    background-color: black;
+    color: #f8d106;
+}
+
 .btn[disabled]:hover {
     cursor: not-allowed;
     box-shadow: none;
