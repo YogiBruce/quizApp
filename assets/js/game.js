@@ -118,7 +118,7 @@ function startTimer() {
     acceptingAnswers = true;
 };
 
-//FUNCTION TO SELECT AND EVALUATE ANSWER
+//FUNCTION TO EVALUATE SELECTED ANSWER TO CORRECT ANSWER FROM ARRAY IF GAME IS ACCEPTING ANSWERS
 choices.forEach(choice => {
     choice.addEventListener("click", e =>{
     if(!acceptingAnswers) return;
@@ -127,7 +127,7 @@ choices.forEach(choice => {
     const selectedChoice = e.target;
     const selectedAnswer = selectedChoice.dataset[`number`];
     
-    //ADDS CSS PROPERTY FOR RIGHT/WRONG TO USABLE VARIABLE
+    //ADDS CSS PROPERTY FOR RIGHT/WRONG DEPENDING ON BOOLEAN OUTPUT
     let classToApply = selectedAnswer == currentQuestion.answer ? "correct" : "incorrect";
     
     //ADDS POINTS TO SCORE FOR CORRECT ANSWER, SUBTRACTS 5SEC FOR INCORRECT ANSWER
@@ -149,7 +149,7 @@ choices.forEach(choice => {
     });
 })
 
-//INCREMENTS SCORE DISPLAY IF CORRECT ANSWER IS CHOSEN.
+//INCREMENTS SCORE DISPLAY IF CORRECT ANSWER IS CHOSEN AND INCREMENT SCORE IS CALLED.
 incrementScore = num => {
     score += num;
     scoreText.innerText = score;
