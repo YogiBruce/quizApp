@@ -130,9 +130,11 @@ choices.forEach(choice => {
     //ADDS CSS PROPERTY FOR RIGHT/WRONG TO USABLE VARIABLE
     let classToApply = selectedAnswer == currentQuestion.answer ? "correct" : "incorrect";
     
-    //ADDS POINTS TO SCORE FOR CORRECT ANSWER
+    //ADDS POINTS TO SCORE FOR CORRECT ANSWER, SUBTRACTS 5SEC FOR INCORRECT ANSWER
     if (classToApply === "correct"){
         incrementScore(CORRECT_BONUS);
+    } else {
+        timerCount -=5;
     }
     
     //USES VARIABLE FOR CORRECTNESS TO ADD CSS CLASS TO CHOSEN ANSWER 
@@ -143,9 +145,7 @@ choices.forEach(choice => {
         selectedChoice.parentElement.classList.remove(classToApply);
         getNewQuestion();
     }, 500)
-    
 
-    
     });
 })
 
