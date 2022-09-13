@@ -130,11 +130,11 @@ choices.forEach(choice => {
     //ADDS CSS PROPERTY FOR RIGHT/WRONG DEPENDING ON BOOLEAN OUTPUT
     let classToApply = selectedAnswer == currentQuestion.answer ? "correct" : "incorrect";
     
-    //ADDS POINTS TO SCORE FOR CORRECT ANSWER, SUBTRACTS 5SEC FOR INCORRECT ANSWER
+    //ADDS 10POINTS TO SCORE FOR CORRECT ANSWER, SUBTRACTS 10SEC FROM TIMER FOR INCORRECT ANSWER
     if (classToApply === "correct"){
         incrementScore(CORRECT_BONUS);
     } else {
-        timerCount -=5;
+        timerCount -=10;
     }
     
     //USES VARIABLE FOR CORRECTNESS TO ADD CSS CLASS TO CHOSEN ANSWER 
